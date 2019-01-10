@@ -1,0 +1,24 @@
+{
+  "name": "gasol-back-end",
+  "version": "1.0.0",
+  "description": "co226 project backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasirubhagya/Gasol-Back-End.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yasirubhagya/Gasol-Back-End/issues"
+  },
+  "homepage": "https://github.com/yasirubhagya/Gasol-Back-End#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.9"
+  }
+}
