@@ -6,8 +6,6 @@ const connection = mysql.createConnection({
   database : 'mtpmkxzs_gasol'
 });
  
-connection.connect();
-
 module.exports = connection;
  
 /* connection.query('SELECT * FROM CASH', function (error, results, fields) {

@@ -5,11 +5,11 @@ exports.analytics_get_all = (req, res, next) => {
             console.log(error);
         } else {
             console.log(results, fields);
+            connection.end();
             res.status(200).json(results);
         }
 
     });
-
 
 }
 
