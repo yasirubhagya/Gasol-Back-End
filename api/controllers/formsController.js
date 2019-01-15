@@ -69,7 +69,7 @@ exports.customer_getAll = (req, res, next) => {
 
  exports.customerEdit = (req, res, next) => {
      var val=req.body;
-    connection.query('INSERT INTO DEBT_CUSTOMER VALUES(?,?,?,?,?)',[val.CustomerID ,val.CompanyName,val.Threshold,val.phoneNUmber,val.Address],(error,result,fields)=>{
+    connection.query('INSERT INTO DEBT_CUSTOMER VALUES(?,?,?,?,?)',[val.CustomerID ,val.CompanyName,val.Threshold,val.PhoneNumber,val.Address],(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -131,7 +131,7 @@ exports.employeeUpdate= (req, res, next) => {
 
 exports.customerUpdate = (req, res, next) => {
     var val=req.body;
-   connection.query('CALL  updateDebtCustomer(?,?,?,?,?)',[val.CustomerID ,val.CompanyName,val.Threshold,val.phoneNUmber,val.Address],(error,result,fields)=>{
+   connection.query('CALL  updateDebtCustomer(?,?,?,?,?)',[val.CustomerID ,val.CompanyName,val.Threshold,val.PhoneNumber,val.Address],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
