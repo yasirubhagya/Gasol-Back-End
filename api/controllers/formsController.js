@@ -140,7 +140,7 @@ exports.customerUpdate = (req, res, next) => {
 }
 
 exports.vehicleUpdate = (req, res, next) => {
-    var nic=req.body;
+    var val=req.body;
    connection.query('CALL updateVehicle(?,?,?)',[val.VehicleNumber,val.CompanyID,val.FuelID],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
