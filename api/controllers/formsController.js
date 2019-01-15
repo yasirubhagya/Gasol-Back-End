@@ -214,7 +214,7 @@ exports.vehicleDelete = (req, res, next) => {
 
 exports.fuelTypeDelete = (req, res, next) => {
     var fid=req.params.FuelID;
-   connection.query('DELETE FROM FUEL_TYPE WHERE FuelID=?',(error,result,fields)=>{
+   connection.query('DELETE FROM FUEL_TYPE WHERE FuelID=?',[fid],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -224,7 +224,7 @@ exports.fuelTypeDelete = (req, res, next) => {
 
 exports.tankDelete= (req, res, next) => {
     var tid=req.params.TankID;
-   connection.query('DELETE FROM TANK WHERE TankID=?',(error,result,fields)=>{
+   connection.query('DELETE FROM TANK WHERE TankID=?',[tid],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -234,7 +234,7 @@ exports.tankDelete= (req, res, next) => {
 
 exports.pumpDelete= (req, res, next) => {
     var pid=req.params.PumpID;
-   connection.query('DELETE FROM PUMP WHERE PumpID=?',(error,result,fields)=>{
+   connection.query('DELETE FROM PUMP WHERE PumpID=?',[pid],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
