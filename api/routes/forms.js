@@ -17,6 +17,19 @@ formsRouter.get('/fuel_type/insert',formsController.fuelTypeEdit);
 formsRouter.get('/tank/insert',formsController.tankEdit);
 formsRouter.get('/pump/insert',formsController.pumpEdit);
 
+formsRouter.post('/employee/update',formsController.employeeUpdate);
+formsRouter.post('/customer/update',formsController.customerUpdate);
+formsRouter.post('/vehicle/update',formsController.vehicleUpdate);
+formsRouter.post('/fuel_type/update',formsController.fuelTypeUpdate);
+formsRouter.post('/tank/update',formsController.tankUpdate);
+formsRouter.post('/pump/update',formsController.pumpUpdate);
+
+formsRouter.delete('/employee/delete',formsController.employeeDelete);
+formsRouter.delete('/customer/delete',formsController.customerDelete);
+formsRouter.delete('/vehicle/delete',formsController.vehicleDelete);
+formsRouter.delete('/fuel_type/delete',formsController.fuelTypeDelete);
+formsRouter.delete('/tank/delete',formsController.tankDelete);
+formsRouter.delete('/pump/delete',formsController.pumpDelete);
 
 
 
