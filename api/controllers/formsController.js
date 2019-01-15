@@ -79,7 +79,7 @@ exports.customer_getAll = (req, res, next) => {
 
 exports.vehicleEdit = (req, res, next) => {
      var val=req.body;
-    connection.query('INSERT INTO VEHICLE VALUES(?,?,?,?,?)',[val.VehicleID,val.CompanyID,val.VehicleNumber,val.FuelTypes,val.FuelID],(error,result,fields)=>{
+    connection.query('INSERT INTO VEHICLE VALUES(?,?,?)',[val.VehicleNumber,val.CompanyID,val.FuelID],(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -140,8 +140,8 @@ exports.customerUpdate = (req, res, next) => {
 }
 
 exports.vehicleUpdate = (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('CALL updateVehicle(?,?,?,?,?)',[val.VehicleID,val.CompanyID,val.VehicleNumber,val.FuelTypes,val.FuelID],(error,result,fields)=>{
+    var nic=req.body;
+   connection.query('CALL updateVehicle(?,?,?)',[val.VehicleNumber,val.CompanyID,val.FuelID],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -151,7 +151,7 @@ exports.vehicleUpdate = (req, res, next) => {
 
 
 exports.fuelTypeUpdate = (req, res, next) => {
-    var nic=req.body.NIC;
+    var nic=req.body;
    connection.query('CALL updateFuelType(?,?,?,?)',[val.FuelID,val.TankID,val.Name,val.Commision],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
@@ -202,7 +202,7 @@ exports.customerDelete = (req, res, next) => {
 }
 
 exports.vehicleDelete = (req, res, next) => {
-    var vid=req.params.NIC;
+    var vid=req.params.VehicleID;
    connection.query('DELETE FROM VEHICLE WHERE VehicleID=?',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
@@ -213,7 +213,7 @@ exports.vehicleDelete = (req, res, next) => {
 
 
 exports.fuelTypeDelete = (req, res, next) => {
-    var fid=req.params.NIC;
+    var fid=req.params.FuelID;
    connection.query('DELETE FROM FUEL_TYPE WHERE FuelID=?',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
