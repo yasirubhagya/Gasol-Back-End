@@ -182,7 +182,7 @@ exports.pumpUpdate= (req, res, next) => {
 
 /////delete//////////////////////////////////////////////////////////
 exports.employeeDelete = (req, res, next) => {
-     var nic=req.body.NIC;
+     var nic=req.params.NIC;
     connection.query('DELETE FROM EMPLOYEE WHERE NIC=nic',(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);

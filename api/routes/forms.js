@@ -24,7 +24,7 @@ formsRouter.post('/fuel_type/update',formsController.fuelTypeUpdate);
 formsRouter.post('/tank/update',formsController.tankUpdate);
 formsRouter.post('/pump/update',formsController.pumpUpdate);
 
-formsRouter.delete('/employee/delete',formsController.employeeDelete);
+formsRouter.delete('/employee/delete/:NIC',formsController.employeeDelete);
 formsRouter.delete('/customer/delete',formsController.customerDelete);
 formsRouter.delete('/vehicle/delete',formsController.vehicleDelete);
 formsRouter.delete('/fuel_type/delete',formsController.fuelTypeDelete);
