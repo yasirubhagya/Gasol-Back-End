@@ -57,8 +57,9 @@ exports.customer_getAll = (req, res, next) => {
 
  //insert data/////////////////////////////////////////////////////////////////
  exports.employeeEdit = (req, res, next) => {
-      var nic=req.body.NIC;
-     connection.query('',(error,result,fields)=>{
+      var val=req.body;
+      
+     connection.query(`INSERT INTO EMPLOYEE VALUES(${val.nic},${val.firstname},${val.lastname},${val.dateofbirth},${val.phoneno},${val.gender},${val.address},${val.levelid})`,(error,result,fields)=>{
         if(error){
              return res.status(503).json(error);
         }  
@@ -68,7 +69,7 @@ exports.customer_getAll = (req, res, next) => {
 
  exports.customerEdit = (req, res, next) => {
      var nic=req.body.NIC;
-    connection.query('',(error,result,fields)=>{
+    connection.query('INSERT INTO DEBT_CUSTOMER VALUES()',(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -78,7 +79,7 @@ exports.customer_getAll = (req, res, next) => {
 
 exports.vehicleEdit = (req, res, next) => {
      var nic=req.body.NIC;
-    connection.query('',(error,result,fields)=>{
+    connection.query('INSERT INTO VEHICLE VALUES()',(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -89,7 +90,7 @@ exports.vehicleEdit = (req, res, next) => {
 
 exports.fuelTypeEdit = (req, res, next) => {
      var nic=req.body.NIC;
-    connection.query('',(error,result,fields)=>{
+    connection.query('INSERT INTO FUELL_TYPE VALUES()',(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -99,7 +100,7 @@ exports.fuelTypeEdit = (req, res, next) => {
 
 exports.tankEdit= (req, res, next) => {
      var nic=req.body.NIC;
-    connection.query('',(error,result,fields)=>{
+    connection.query('INSERT INTO TANK VALUES()',(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -109,7 +110,7 @@ exports.tankEdit= (req, res, next) => {
 
 exports.pumpEdit= (req, res, next) => {
      var nic=req.body.NIC;
-    connection.query('',(error,result,fields)=>{
+    connection.query('INSERT INTO PUMP VALUES()',(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -120,7 +121,7 @@ exports.pumpEdit= (req, res, next) => {
 /////update data/////////////////////////////////////////////////////
 exports.employeeUpdate= (req, res, next) => {
      var nic=req.body.NIC;
-    connection.query('',(error,result,fields)=>{
+    connection.query('CALL updateEmployee()',(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -130,7 +131,7 @@ exports.employeeUpdate= (req, res, next) => {
 
 exports.customerUpdate = (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL  updateDebtCustomer()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -140,7 +141,7 @@ exports.customerUpdate = (req, res, next) => {
 
 exports.vehicleUpdate = (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL updateVehicle()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -151,7 +152,7 @@ exports.vehicleUpdate = (req, res, next) => {
 
 exports.fuelTypeUpdate = (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL updateFuelType()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -161,7 +162,7 @@ exports.fuelTypeUpdate = (req, res, next) => {
 
 exports.tankUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL updateTank()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -171,7 +172,7 @@ exports.tankUpdate= (req, res, next) => {
 
 exports.pumpUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL updatePump()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  

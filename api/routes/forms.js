@@ -11,11 +11,11 @@ formsRouter.get('/tank/get_all',formsController.tank_getAll);
 formsRouter.get('/pump/get_all',formsController.pump_getAll);
 
 formsRouter.post('/employee/insert',formsController.employeeEdit);
-formsRouter.get('/customer/insert',formsController.customerEdit);
-formsRouter.get('/vehicle/insert',formsController.vehicleEdit);
-formsRouter.get('/fuel_type/insert',formsController.fuelTypeEdit);
-formsRouter.get('/tank/insert',formsController.tankEdit);
-formsRouter.get('/pump/insert',formsController.pumpEdit);
+formsRouter.post('/customer/insert',formsController.customerEdit);
+formsRouter.post('/vehicle/insert',formsController.vehicleEdit);
+formsRouter.post('/fuel_type/insert',formsController.fuelTypeEdit);
+formsRouter.post('/tank/insert',formsController.tankEdit);
+formsRouter.post('/pump/insert',formsController.pumpEdit);
 
 formsRouter.post('/employee/update',formsController.employeeUpdate);
 formsRouter.post('/customer/update',formsController.customerUpdate);

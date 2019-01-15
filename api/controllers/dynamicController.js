@@ -161,7 +161,7 @@ exports.debtEdit= (req, res, next) => {
 ///////update data///////////////////////////////////////////////
 exports.cashUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL ',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -170,7 +170,7 @@ exports.cashUpdate= (req, res, next) => {
 }
 exports.chequeUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL updateCheque()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -179,7 +179,7 @@ exports.chequeUpdate= (req, res, next) => {
 }
 exports.hourlyEmployeeUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL updateHEmployee()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -188,7 +188,7 @@ exports.hourlyEmployeeUpdate= (req, res, next) => {
 }
 exports.salariedEmployeeUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL salaryEmployeeUpdate()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -197,7 +197,7 @@ exports.salariedEmployeeUpdate= (req, res, next) => {
 }
 exports.meterReadingsUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL updateMeterReadings()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -206,7 +206,7 @@ exports.meterReadingsUpdate= (req, res, next) => {
 }
 exports.recordsUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL updateRecords()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -215,7 +215,7 @@ exports.recordsUpdate= (req, res, next) => {
 }
 exports.creditCardsUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL updateCREADIT_CARD()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -224,7 +224,7 @@ exports.creditCardsUpdate= (req, res, next) => {
 }
 exports.otherExpendituresUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL updateOtherExpenditure()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -233,7 +233,7 @@ exports.otherExpendituresUpdate= (req, res, next) => {
 }
 exports.debtUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('CALL updateDebt()',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -252,8 +252,8 @@ exports.cashDelete= (req, res, next) => {
    });    
 }
 exports.chequeDelete= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+    var cid=req.body.NIC;
+   connection.query('DELETE FROM CHEQUE WHERE ChequeID=cid',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -261,8 +261,8 @@ exports.chequeDelete= (req, res, next) => {
    });    
 }
 exports.hourlyEmployeeDelete= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+    var eid=req.body.NIC;
+   connection.query('DELETE FROM HOURLY_EMPLOYEE WHERE EmployeeId=eid',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -270,8 +270,8 @@ exports.hourlyEmployeeDelete= (req, res, next) => {
    });    
 }
 exports.salariedEmployeeDelete= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+    var eid=req.body.NIC;
+   connection.query('DELETE FROM SALARIED_EMPLOYEE WHERE EmployeeId=eid',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -279,8 +279,8 @@ exports.salariedEmployeeDelete= (req, res, next) => {
    });    
 }
 exports.meterReadingsDelete= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+    var pid=req.body.NIC;
+   connection.query('DELETE FROM METER_READINGS WHERE PumpID=pid',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -288,8 +288,8 @@ exports.meterReadingsDelete= (req, res, next) => {
    });    
 }
 exports.recordsDelete= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+    var rid=req.body.NIC;
+   connection.query('DELETE FROM RECORDS WHERE RecordID=rid',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -297,8 +297,8 @@ exports.recordsDelete= (req, res, next) => {
    });    
 }
 exports.creditCardsDelete= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+    var id=req.body.NIC;
+   connection.query('DELETE FROM CREADIT_CARD WHERE  ID=id',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -306,8 +306,8 @@ exports.creditCardsDelete= (req, res, next) => {
    });    
 }
 exports.otherExpendituresDelete= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+    var id=req.body.NIC;
+   connection.query('DELETE FROM OTHER_EXPENDITURES WHERE ID = id',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -315,8 +315,8 @@ exports.otherExpendituresDelete= (req, res, next) => {
    });    
 }
 exports.debtDelete= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+    var cid=req.body.NIC;
+   connection.query('DELETE FROM DEBT WHERE CustomerID=cid',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
