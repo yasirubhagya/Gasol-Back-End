@@ -90,7 +90,7 @@ exports.vehicleEdit = (req, res, next) => {
 
 exports.fuelTypeEdit = (req, res, next) => {
      var val=req.body;
-    connection.query('INSERT INTO FUELL_TYPE VALUES(?,?,?,?)',[val.FuelID,val.TankID,val.Name,val.Commision],(error,result,fields)=>{
+    connection.query('INSERT INTO FUEL_TYPE VALUES(?,?,?,?)',[val.FuelID,val.Name,val.Commision,val.Price],(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -100,7 +100,7 @@ exports.fuelTypeEdit = (req, res, next) => {
 
 exports.tankEdit= (req, res, next) => {
      var val=req.body;
-    connection.query('INSERT INTO TANK VALUES(?,?,?,?,?)',[val.TankID,val.Admin_Id,val.Capacitor,val.Resovoir,val.Label],(error,result,fields)=>{
+    connection.query('INSERT INTO TANK VALUES(?,?,?,?,?)',[val.TankID,val.Admin_Id,val.Capacitor,val.Resovoir,val.FuelID,val.Label],(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -152,7 +152,7 @@ exports.vehicleUpdate = (req, res, next) => {
 
 exports.fuelTypeUpdate = (req, res, next) => {
     var nic=req.body;
-   connection.query('CALL updateFuelType(?,?,?,?)',[val.FuelID,val.TankID,val.Name,val.Commision],(error,result,fields)=>{
+   connection.query('CALL updateFuelType(?,?,?,?)',[val.FuelID,val.Name,val.Commision,val.Price],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -161,8 +161,8 @@ exports.fuelTypeUpdate = (req, res, next) => {
 }
 
 exports.tankUpdate= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('CALL updateTank(?,?,?,?,?)',[val.TankID,val.Admin_Id,val.Capacitor,val.Resovoir,val.Label],(error,result,fields)=>{
+    var val=req.body;
+   connection.query('CALL updateTank(?,?,?,?,?)',[val.TankID,val.Capacity,val.Resovoir,val.FuelID,val.Label],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -171,7 +171,7 @@ exports.tankUpdate= (req, res, next) => {
 }
 
 exports.pumpUpdate= (req, res, next) => {
-    var nic=req.body.NIC;
+    var val=req.body;
    connection.query('CALL updatePump(?,?,?)',[val.Pump,val.TankId,val.Label],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
@@ -223,7 +223,7 @@ exports.fuelTypeDelete = (req, res, next) => {
 }
 
 exports.tankDelete= (req, res, next) => {
-    var tid=req.params.NIC;
+    var tid=req.params.TankID;
    connection.query('DELETE FROM TANK WHERE TankID=?',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
@@ -233,7 +233,7 @@ exports.tankDelete= (req, res, next) => {
 }
 
 exports.pumpDelete= (req, res, next) => {
-    var pid=req.params.NIC;
+    var pid=req.params.PumpID;
    connection.query('DELETE FROM PUMP WHERE PumpID=?',(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
