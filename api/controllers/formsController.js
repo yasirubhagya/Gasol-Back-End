@@ -202,8 +202,8 @@ exports.customerDelete = (req, res, next) => {
 }
 
 exports.vehicleDelete = (req, res, next) => {
-    var vid=req.params.VehicleID;
-   connection.query('DELETE FROM VEHICLE WHERE VehicleID=?',(error,result,fields)=>{
+    var vid=req.params.VehicleNumber;
+   connection.query('DELETE FROM VEHICLE WHERE VehicleNumber=?',[vid],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
