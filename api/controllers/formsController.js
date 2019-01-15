@@ -121,7 +121,7 @@ exports.pumpEdit= (req, res, next) => {
 /////update data/////////////////////////////////////////////////////
 exports.employeeUpdate= (req, res, next) => {
      var nic=req.body.NIC;
-    connection.query('CALL updateEmployee()',(error,result,fields)=>{
+    connection.query('CALL updateEmployee(?, ?,?, ?,?, ?,?, ?)',[val.nic,val.firstname,val.lastname,val.dateofbirth,val.phoneno,val.gender,val.address,val.levelid],(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
