@@ -151,7 +151,7 @@ exports.vehicleUpdate = (req, res, next) => {
 
 
 exports.fuelTypeUpdate = (req, res, next) => {
-    var nic=req.body;
+    var val=req.body;
    connection.query('CALL updateFuelType(?,?,?,?)',[val.FuelID,val.Name,val.Commision,val.Price],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
