@@ -59,7 +59,7 @@ exports.customer_getAll = (req, res, next) => {
  exports.employeeEdit = (req, res, next) => {
       var val=req.body;
       
-     connection.query('INSERT INTO EMPLOYEE(`NIC`,`FName`,`LName`,`DOB`,`PhoneNumber`,`Gender`,`Address`,`LevelId`) VALUES(?, ?,?, ?,?, ?,?, ?)',[val.nic,val.firstname,val.lastname,val.dateofbirth,val.phoneno,val.gender,val.address,val.levelid],(error,result,fields)=>{
+     connection.query('INSERT INTO EMPLOYEE VALUES(?, ?,?, ?,?, ?,?, ?)',[val.nic,val.firstname,val.lastname,val.dateofbirth,val.phoneno,val.gender,val.address,val.levelid],(error,result,fields)=>{
         if(error){
              return res.status(503).json(error);
         }  
