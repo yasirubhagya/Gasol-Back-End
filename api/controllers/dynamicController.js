@@ -77,8 +77,8 @@ exports.otherExpenditures_getAll = (req, res, next) => {
 
 ///////////insert data////////////////////////////////////
 exports.cashEdit= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+    var VAL=req.body;
+   connection.query('INSERT INTO CASH VALUES(?,?)',[val.ItemID,val.Amount],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -87,7 +87,7 @@ exports.cashEdit= (req, res, next) => {
 }
 exports.chequeEdit= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   connection.query('INSERT INTO CHEQUE VALUES(?,?,?,?,?,?,?)',[val.ItemID,val.ChequeID,val.NameOFInstitue,val.Amount,val.ReceivedDate,val.ExpireDate,val.Incoming_Outgoing],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -95,8 +95,8 @@ exports.chequeEdit= (req, res, next) => {
    });    
 }
 exports.hourlyEmployeeEdit= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+    var val=req.body;
+   connection.query('INSERT INTO HOURLY_EMPLOYEE VALUES(?,?,?,?)',[val.EmployeeId,val. PayScale,val.WorkingHours_Day,val.WorkingHours_Night],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -104,8 +104,8 @@ exports.hourlyEmployeeEdit= (req, res, next) => {
    });    
 }
 exports.salariedEmployeeEdit= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   var val=req.body;
+   connection.query('INSERT INTO  SALARIED_EMPLOYEE VALUES(?,?,?)',[val.EmployeeId,val.Salary,val.workingDays],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -113,8 +113,8 @@ exports.salariedEmployeeEdit= (req, res, next) => {
    });    
 }
 exports.meterReadingsEdit= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   var val=req.body;
+   connection.query('INSERT INTO  METER_READINGS VALUES(?,?,?)',[val.PumpID,val.RecordValue,val.ReadingDate],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -122,8 +122,8 @@ exports.meterReadingsEdit= (req, res, next) => {
    });    
 }
 exports.recordsEdit= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   var val=req.body;
+   connection.query('INSERT INTO RECORDS VALUES(?,?,?,?)',[val.RecordID,val.Date_Time,val.Admin_Id,val.Added_By],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -131,8 +131,8 @@ exports.recordsEdit= (req, res, next) => {
    });    
 }
 exports.creditCardsEdit= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   var val=req.body;
+   connection.query('INSERT INTO CREADIT_CARD VALUES(?,?,?,?,?)',[val.ID,val.CustomerID,val.Datep,val.Types,val.Amount],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -140,8 +140,8 @@ exports.creditCardsEdit= (req, res, next) => {
    });    
 }
 exports.otherExpendituresEdit= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   var val=req.body;
+   connection.query('INSERT INTO RECORDS VALUES(?,?,?,?)',[val.ID,val.Name,val.Types,val.Price],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -149,8 +149,8 @@ exports.otherExpendituresEdit= (req, res, next) => {
    });    
 }
 exports.debtEdit= (req, res, next) => {
-    var nic=req.body.NIC;
-   connection.query('',(error,result,fields)=>{
+   var val=req.body;
+   connection.query('INSERT INTO DEBT VALUES(?,?)',[val.CustomerID,val.Amount],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -170,7 +170,7 @@ exports.cashUpdate= (req, res, next) => {
 }
 exports.chequeUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('CALL updateCheque()',(error,result,fields)=>{
+   connection.query('CALL updateCheque(?,?,?,?,?,?,?)',[val.ItemID,val.ChequeID,val.NameOFInstitue,val.Amount,val.ReceivedDate,val.ExpireDate,val.Incoming_Outgoing],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -179,7 +179,7 @@ exports.chequeUpdate= (req, res, next) => {
 }
 exports.hourlyEmployeeUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('CALL updateHEmployee()',(error,result,fields)=>{
+   connection.query('CALL updateHEmployee(?,?,?,?)',[val.EmployeeId,val. PayScale,val.WorkingHours_Day,val.WorkingHours_Night],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -188,7 +188,7 @@ exports.hourlyEmployeeUpdate= (req, res, next) => {
 }
 exports.salariedEmployeeUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('CALL salaryEmployeeUpdate()',(error,result,fields)=>{
+   connection.query('CALL salaryEmployeeUpdate(?,?,?)',[val.EmployeeId,val.Salary,val.workingDays],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -197,7 +197,7 @@ exports.salariedEmployeeUpdate= (req, res, next) => {
 }
 exports.meterReadingsUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('CALL updateMeterReadings()',(error,result,fields)=>{
+   connection.query('CALL updateMeterReadings(?,?,?)',[val.PumpID,val.RecordValue,val.ReadingDate],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -206,7 +206,7 @@ exports.meterReadingsUpdate= (req, res, next) => {
 }
 exports.recordsUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('CALL updateRecords()',(error,result,fields)=>{
+   connection.query('CALL updateRecords(?,?,?,?)',[val.RecordID,val.Date_Time,val.Admin_Id,val.Added_By],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -215,7 +215,7 @@ exports.recordsUpdate= (req, res, next) => {
 }
 exports.creditCardsUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('CALL updateCREADIT_CARD()',(error,result,fields)=>{
+   connection.query('CALL updateCREADIT_CARD(?,?,?,?,?)',[val.ID,val.CustomerID,val.Datep,val.Types,val.Amount],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -224,7 +224,7 @@ exports.creditCardsUpdate= (req, res, next) => {
 }
 exports.otherExpendituresUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('CALL updateOtherExpenditure()',(error,result,fields)=>{
+   connection.query('CALL updateOtherExpenditure(?,?,?,?)',[val.ID,val.Name,val.Types,val.Price],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -233,7 +233,7 @@ exports.otherExpendituresUpdate= (req, res, next) => {
 }
 exports.debtUpdate= (req, res, next) => {
     var nic=req.body.NIC;
-   connection.query('CALL updateDebt()',(error,result,fields)=>{
+   connection.query('CALL updateDebt(?,?)',[val.CustomerID,val.Amount],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
