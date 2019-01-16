@@ -110,7 +110,7 @@ exports.tankEdit= (req, res, next) => {
 
 exports.pumpEdit= (req, res, next) => {
      var val=req.body;
-    connection.query('INSERT INTO PUMP VALUES(?,?,?)',[val.PumpID,val.TankId,val.Label],(error,result,fields)=>{
+    connection.query('INSERT INTO PUMP VALUES(?,?,?)',[val.PumpID,val.TankID,val.Label],(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -172,7 +172,7 @@ exports.tankUpdate= (req, res, next) => {
 
 exports.pumpUpdate= (req, res, next) => {
     var val=req.body;
-   connection.query('CALL updatePump(?,?,?)',[val.Pump,val.TankId,val.Label],(error,result,fields)=>{
+   connection.query('CALL updatePump(?,?,?)',[val.PumpID,val.TankID,val.Label],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
