@@ -100,7 +100,7 @@ exports.fuelTypeEdit = (req, res, next) => {
 
 exports.tankEdit= (req, res, next) => {
      var val=req.body;
-    connection.query('INSERT INTO TANK VALUES(?,?,?,?,?)',[val.TankID,val.Capacitor,val.Resovoir,val.Fuel_ID,val.Label],(error,result,fields)=>{
+    connection.query('INSERT INTO TANK VALUES(?,?,?,?,?)',[val.TankID,val.Capacity,val.Resovoir,val.Fuel_ID,val.Label],(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
