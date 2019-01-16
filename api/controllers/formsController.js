@@ -213,7 +213,7 @@ exports.vehicleDelete = (req, res, next) => {
 
 
 exports.fuelTypeDelete = (req, res, next) => {
-    var fid=req.params.Fuel_ID;
+    var fid=req.params.FuelID;
    connection.query('DELETE FROM FUEL_TYPE WHERE FuelID=?',[fid],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
