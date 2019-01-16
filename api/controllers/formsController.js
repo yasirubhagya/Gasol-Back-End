@@ -90,7 +90,7 @@ exports.vehicleEdit = (req, res, next) => {
 
 exports.fuelTypeEdit = (req, res, next) => {
      var val=req.body;
-    connection.query('INSERT INTO FUEL_TYPE VALUES(?,?,?,?)',[val.FuelID,val.Name,val.Commision,val.Price],(error,result,fields)=>{
+    connection.query('INSERT INTO FUEL_TYPE VALUES(?,?,?,?)',[val.Fuel_ID,val.Name,val.Commision,val.Price],(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -100,7 +100,7 @@ exports.fuelTypeEdit = (req, res, next) => {
 
 exports.tankEdit= (req, res, next) => {
      var val=req.body;
-    connection.query('INSERT INTO TANK VALUES(?,?,?,?,?)',[val.TankID,val.Admin_Id,val.Capacitor,val.Resovoir,val.FuelID,val.Label],(error,result,fields)=>{
+    connection.query('INSERT INTO TANK VALUES(?,?,?,?,?)',[val.TankID,val.Capacitor,val.Resovoir,val.FuelID,val.Label],(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -110,7 +110,7 @@ exports.tankEdit= (req, res, next) => {
 
 exports.pumpEdit= (req, res, next) => {
      var val=req.body;
-    connection.query('INSERT INTO PUMP VALUES(?,?,?)',[val.Pump,val.TankId,val.Label],(error,result,fields)=>{
+    connection.query('INSERT INTO PUMP VALUES(?,?,?)',[val.PumpID,val.TankId,val.Label],(error,result,fields)=>{
        if(error){
             return res.status(503).json(error);
        }  
@@ -152,7 +152,7 @@ exports.vehicleUpdate = (req, res, next) => {
 
 exports.fuelTypeUpdate = (req, res, next) => {
     var val=req.body;
-   connection.query('CALL updateFuelType(?,?,?,?)',[val.FuelID,val.Name,val.Commision,val.Price],(error,result,fields)=>{
+   connection.query('CALL updateFuelType(?,?,?,?)',[val.Fuel_ID,val.Name,val.Commision,val.Price],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
@@ -213,8 +213,8 @@ exports.vehicleDelete = (req, res, next) => {
 
 
 exports.fuelTypeDelete = (req, res, next) => {
-    var fid=req.params.FuelID;
-   connection.query('DELETE FROM FUEL_TYPE WHERE FuelID=?',[fid],(error,result,fields)=>{
+    var fid=req.params.Fuel_ID;
+   connection.query('DELETE FROM FUEL_TYPE WHERE Fuel_ID=?',[fid],(error,result,fields)=>{
       if(error){
            return res.status(503).json(error);
       }  
